@@ -87,3 +87,23 @@ app.put("/api/product/:id", async (request, response) => {
           });
     }
 });
+
+app.delete("/api/product/:id" , async (request , response) => {
+      try {
+        const {id} = request.params;
+        const deleteProduct = await Product.findByIdAndDelete(id);
+
+        if(!deleteProduct){
+          return response.status(404).json({message: "Product not found"})
+        }
+
+        response.status(200).json({message: "Product deleted successfully"});
+      
+      } catch (error) {
+        response.json({
+          data: [],
+          status: false,
+          message: error.message,
+        });
+      }
+} )
