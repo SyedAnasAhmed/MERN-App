@@ -1,18 +1,14 @@
-import express, { request, response } from "express";
+// import express, { request, response } from "express";
 import { Router } from "express";
-import Product from "../models/product.model";
+import { deleteProducts, getProduct, getProducts, createProduct, updateProducts } from "../Controllers/products.controller.js";
 
 const router = Router();
 
-router.get("/", async (request, response) => {
-  try {
-    const products = await Product.find({});
-    response.status(200).json(products);
-  } catch (error) {
-    response.json({
-      data: [],
-      status: false,
-      message: error.message,
-    });
-  }
-});
+router.get("/", getProducts );
+router.get("/:id" , getProduct );
+router.post("/" , createProduct);
+router.put("/:id" , updateProducts);
+router.delete("/:id" , deleteProducts );
+
+
+export default router;
