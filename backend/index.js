@@ -1,14 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/product.Route.js";
+import * as dotenv from "dotenv"
+dotenv.config()
 
 const app = express();
 const PORT = 3000;
+const myURI = process.env.URI
+
 
 mongoose
-  .connect(
-    "mongodb+srv://syedanasahmed412:tajdarsana2000@firstproject.nq5yslb.mongodb.net/Node-api?retryWrites=true&w=majority&appName=FirstProject"
-  )
+  .connect(myURI)
   .then((res) => {
     console.log("Connected to the database");
   })
