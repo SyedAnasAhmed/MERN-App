@@ -2,8 +2,16 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import "./App.css";
 import AccordionUsage from "./Components/Card";
 import BasicModal from "./Components/Modal";
+import { useState } from "react";
 
 function App() {
+
+  const [ todos , setTodos]  = useState();
+
+
+
+
+
   return (
     <>
       <div className="maindiv" >
@@ -32,9 +40,17 @@ function App() {
               <BasicModal />
             </Box>
 
-            <div>
-              <AccordionUsage />
-            </div>
+            {/* <div>
+              {
+                todos.length === 0
+                ? 
+                <h2>NO TODO'S CREATED</h2> 
+                : 
+                todos.map(todo => (
+                  <AccordionUsage />
+                ))
+              }
+            </div> */}
           </Container>
         </Stack>
       </div>

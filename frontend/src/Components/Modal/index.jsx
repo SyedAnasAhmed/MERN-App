@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { CircularProgress, Stack, TextField } from "@mui/material";
 import { useState } from "react";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -32,92 +33,17 @@ export default function BasicModal() {
       console.log("required field are missing");
       return;
     }
+    axios.post
   };
   
   const handleClose = () => {
     setLoading(true);
-    // Simulate a delay for loader effect
     setTimeout(() => {
       setLoading(false);
       setOpen(false);
-    }, 2000); // Adjust the timeout as needed
-  }; // Adjust the timeout as needed
+    }, 2000); 
+  }; 
 
-
-// return (
-//   <div>
-//     <Button
-//       variant="outlined"
-//       color="primary"
-//       sx={{ mb: 5 }}
-//       onClick={handleOpen}
-//     >
-//       Create a TODO
-//     </Button>
-//     <Modal
-//       open={open}
-//       onClose={handleClose}
-//       aria-labelledby="modal-modal-title"
-//       aria-describedby="modal-modal-description"
-//     >
-//       <Box sx={style}>
-//         <Typography variant="h6" sx={{ mb: 3 }}>
-//           Create a TODO
-//         </Typography>
-
-//         <Typography
-//           id="modal-modal-title"
-//           variant="h6"
-//           component="h2"
-//           sx={{ marginBottom: 3 }}
-//         >
-//           <TextField
-//             id="outlined-basic"
-//             label="Enter TODO Heading"
-//             variant="outlined"
-//             fullWidth
-//             onChange={(e) => {
-//               setHeading(e.target.value);
-//             }}
-//           />
-//         </Typography>
-//         <Typography id="modal-modal-title" variant="h6" component="h2">
-//           <TextField
-//             id="outlined-basic"
-//             label="Enter TODO Description"
-//             variant="outlined"
-//             fullWidth
-//             onChange={(e) => {
-//               setdescription(e.target.value);
-//             }}
-//           />
-//         </Typography>
-//         <Stack
-//           direction="row"
-//           spacing={3}
-//           alignItems="center"
-//           justifyContent="flex-end"
-//           mt={4}
-//         >
-//           <Button
-//             variant="contained"
-//             color="success"
-//             type="button"
-//             onClick={(event) => {
-//               submitHandler(event);
-//               handleClose();
-//             }}
-//           >
-//             Create Post
-//           </Button>
-//           <Button variant="outlined" color="error">
-//             Cancel
-//           </Button>
-//         </Stack>
-//       </Box>
-//     </Modal>
-//   </div>
-// );
 
 return (
   <div>
@@ -176,7 +102,7 @@ return (
                 variant="outlined"
                 fullWidth
                 onChange={(e) => {
-                  setDescription(e.target.value);
+                  setdescription(e.target.value);
                 }}
               />
             </Typography>
