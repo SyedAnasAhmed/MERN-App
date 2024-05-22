@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/product.Route.js";
 import * as dotenv from "dotenv"
+import cors from "cors"
 dotenv.config()
 
 const app = express();
@@ -20,6 +21,7 @@ mongoose
 
 
 // middleware
+app.use(cors({ origin: "*" }))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
