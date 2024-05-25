@@ -31,12 +31,15 @@ const createProduct = async (request, response) => {
   try {
     const product = await Product.create(request.body);
     response.status(200).json(product);
+
+    console.log(request.body)
   } catch (error) {
     response.json({
       data: [],
       status: false,
       message: error.message,
     });
+    console.log(error.message)
   }
 };
 

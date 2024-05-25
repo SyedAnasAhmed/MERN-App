@@ -212,11 +212,11 @@ export default function BasicModal() {
         description,
         userID: "101",
       };
-      const create = await axios.post(`${BASE_URL}/createproduct`, obj);
+      const create = await axios.post(`${BASE_URL}/api/products`, obj);
       console.log("created");
       console.log("create", create);
     } catch (error) {
-      console.log("error", error.message);
+      console.log("error", error.response);
     } finally {
       setLoading(false); // Reset loading state after the API call
       setOpen(false); // Close the modal after the API call
