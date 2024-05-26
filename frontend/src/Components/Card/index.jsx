@@ -11,7 +11,7 @@ import { Box, Typography, Stack } from "@mui/material";
 export default function AccordionUsage(props) {
   return (
     <Box>
-      <Accordion sx={{ width: 1150 }}>
+      <Accordion sx={{ width: 1150 , marginTop: 5 }}>
         <AccordionSummary
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel3-content"
