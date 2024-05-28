@@ -7,8 +7,16 @@ import Button from "@mui/material/Button";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import { Box, Typography, Stack } from "@mui/material";
+import { BASE_URL } from "../../config";
 
 export default function AccordionUsage(props) {
+  
+  const deleteButton = async() =>{
+    const url = `${BASE_URL}/api/products/${id}`;
+    await axios.delete(url);
+    fetchData();
+  }
+
   return (
     <Box>
       <Accordion sx={{ width: 1150 , marginTop: 5 }}>
@@ -25,7 +33,8 @@ export default function AccordionUsage(props) {
             <Button variant="outlined" size="small" startIcon={<EditIcon />}>
               Edit
             </Button>
-            <Button variant="contained" color="error" size="small" startIcon={<DeleteOutlineIcon />}>
+            <Button variant="contained" color="error" size="small" startIcon={<DeleteOutlineIcon />}
+            onClick={deleteButton}>
               Delete
             </Button>
           </Stack>

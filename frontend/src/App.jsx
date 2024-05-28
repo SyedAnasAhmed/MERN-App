@@ -15,7 +15,6 @@ function App() {
       const response = await axios.get(`${BASE_URL}/api/products/`);
       console.log(response.data);
       setposts(response.data)
-
     } catch (error) {
       console.log(error.message);
     }
@@ -24,6 +23,9 @@ function App() {
   useEffect(() => {
     fetchdata();
   }, []);
+
+
+
 
   return (
     <>
@@ -55,7 +57,7 @@ function App() {
             {
               getposts?.map((getposts)=>{
                 return(
-                  
+
                   <AccordionUsage key={getposts.id} heading={getposts.heading} description={getposts.description} />
                 )
               })

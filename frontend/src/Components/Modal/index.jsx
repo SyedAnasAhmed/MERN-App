@@ -7,6 +7,7 @@ import { CircularProgress, Stack, TextField } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../config";
+import { useEffect } from "react";
 
 const style = {
   position: "absolute",
@@ -25,7 +26,7 @@ export default function BasicModal() {
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [getpost, setposts] = useState([]);
   const handleOpen = () => setOpen(true);
 
   const submitHandler = async (event) => {
@@ -44,6 +45,7 @@ export default function BasicModal() {
         userID: "101",
       };
       const create = await axios.post(`${BASE_URL}/api/products`, obj);
+      setposts((prevPosts) => [...prevPosts, create]);
       console.log("create", create);
     } catch (error) {
       console.log("error", error.response);
@@ -51,7 +53,6 @@ export default function BasicModal() {
       setLoading(false);
       setOpen(false);
     }
-    
   };
 
   const handleClose = () => {
